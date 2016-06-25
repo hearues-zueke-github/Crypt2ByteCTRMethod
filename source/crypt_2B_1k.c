@@ -1,5 +1,5 @@
-#include "utils.h"
-#include "crypt_2B_1k.h"
+#include "../include/utils.h"
+#include "../include/crypt_2B_1k.h"
 
 int l_f[] = {(BLOCK_F_N <= 0x100 ? BLOCK_F_N : BLOCK_F_N * 2), BLOCK_F_M};
 int l_o[] = {(BLOCK_F_N <= 0x100 ? BLOCK : BLOCK / 2), BLOCK_O_I * 2, BLOCK_O_B};

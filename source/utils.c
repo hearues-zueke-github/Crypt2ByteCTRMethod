@@ -148,102 +148,6 @@ void print_block_2B(uint8* block, size_t size) {
   }
 }
 
-int create_array(uint8* array, int l[], int dim) {
-    int i = 0;
-    uint8*** a = (uint8***)array;
-
-    if (dim == 1) {
-        if ((*(uint8**)array = (uint8*)malloc(l[dim - 1] * sizeof(uint8*))) == NULL)
-            return -1;
-        else
-            return 0;
-    }
-
-    if ((*a = (uint8**)malloc(l[dim - 1] * sizeof(uint8*))) == NULL)
-        return -1;
-
-    for (i = 0; i < l[dim - 1]; i++) {
-        uint8* temp;
-        if (create_array((uint8*)&temp, l, dim - 1) == -1) {
-            free_array((uint8*)*(uint8**)array, l, dim);
-            return -1;
-        }
-        (*a)[i] = temp;
-    }
-  
-    return 0;
-}
-
-void free_array(uint8* array, int l[], int dim) {
-    int i = 0;
-
-    uint8** a = (uint8**)array;
-
-    if (dim == 1) {
-        free((uint8*)a);
-        return;
-    }
-
-    if (a == NULL)
-        return;
-
-    for (i = 0; i < l[dim - 1]; i++) {
-        if (a[i] != NULL)
-            free_array((uint8*)a[i], l, dim - 1);
-        else
-            break;
-    }
-    free(a);
-}
-
-int create_array_generic(void* array, int l[], int dim, size_t size) {
-    int i = 0;
-    void*** a = (void***)array;
-
-    if (dim == 1) {
-        if ((*(void**)array = (void*)malloc(l[dim - 1] * size)) == NULL)
-            return -1;
-        else
-            return 0;
-    }
-
-    if ((*a = (void**)malloc(l[dim - 1] * sizeof(void*))) == NULL)
-        return -1;
-
-    for (i = 0; i < l[dim - 1]; i++) {
-        void* temp;
-        if (create_array((void*)&temp, l, dim - 1) == -1) {
-            free_array_generic((void*)*(void**)array, l, dim);
-            return -1;
-        }
-        (*a)[i] = temp;
-    }
-  
-    return 0;
-}
-
-void free_array_generic(void* array, int l[], int dim) {
-    int i = 0;
-
-    void** a = (void**)array;
-
-    if (dim == 1) {
-        free((void*)a);
-        return;
-    }
-
-    if (a == NULL)
-        return;
-
-    for (i = 0; i < l[dim - 1]; i++) {
-        if (a[i] != NULL)
-            free_array_generic((void*)a[i], l, dim - 1);
-        else
-            break;
-    }
-    free(a);
-}
-
 void define_random_1d_block(uint8* block, int length) {
   int i = 0;
   for (i = 0; i < length; i++)
@@ -556,4 +460,100 @@ void load_exp_round(char* filename, int* exponent, int* rounds) {
   *rounds = (int)temp[0];
 
   fclose(fin);
+}
+
+int create_array(uint8* array, int l[], int dim) {
+  int i = 0;
+  uint8*** a = (uint8***)array;
+
+  if (dim == 1) {
+    if ((*(uint8**)array = (uint8*)malloc(l[dim - 1] * sizeof(uint8*))) == NULL)
+      return -1;
+    else
+      return 0;
+  }
+
+  if ((*a = (uint8**)malloc(l[dim - 1] * sizeof(uint8*))) == NULL)
+    return -1;
+
+  for (i = 0; i < l[dim - 1]; i++) {
+    uint8* temp;
+    if (create_array((uint8*)&temp, l, dim - 1) == -1) {
+      free_array((uint8*)*(uint8**)array, l, dim);
+      return -1;
+    }
+    (*a)[i] = temp;
+  }
+
+  return 0;
+}
+
+void free_array(uint8* array, int l[], int dim) {
+  int i = 0;
+
+  uint8** a = (uint8**)array;
+
+  if (dim == 1) {
+    free((uint8*)a);
+    return;
+  }
+
+  if (a == NULL)
+    return;
+
+  for (i = 0; i < l[dim - 1]; i++) {
+    if (a[i] != NULL)
+      free_array((uint8*)a[i], l, dim - 1);
+    else
+      break;
+  }
+  free(a);
+}
+
+int create_array_generic(void* array, int l[], int dim, size_t size) {
+  int i = 0;
+  void*** a = (void***)array;
+
+  if (dim == 1) {
+    if ((*(void**)array = (void*)malloc(l[dim - 1] * size)) == NULL)
+      return -1;
+    else
+      return 0;
+  }
+
+  if ((*a = (void**)malloc(l[dim - 1] * sizeof(void*))) == NULL)
+    return -1;
+
+  for (i = 0; i < l[dim - 1]; i++) {
+    void* temp;
+    if (create_array((void*)&temp, l, dim - 1) == -1) {
+      free_array_generic((void*)*(void**)array, l, dim);
+      return -1;
+    }
+    (*a)[i] = temp;
+  }
+
+  return 0;
+}
+
+void free_array_generic(void* array, int l[], int dim) {
+  int i = 0;
+
+  void** a = (void**)array;
+
+  if (dim == 1) {
+    free((void*)a);
+    return;
+  }
+
+  if (a == NULL)
+    return;
+
+  for (i = 0; i < l[dim - 1]; i++) {
+    if (a[i] != NULL)
+      free_array_generic((void*)a[i], l, dim - 1);
+    else
+      break;
+  }
+  free(a);
 }
