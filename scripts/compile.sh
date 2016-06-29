@@ -38,20 +38,20 @@ function getFileArgument {
 compiler="gcc"
 flags="-Wall"
 
-files=()
-files+=("create_key_2B_1k.c utils.c crypt_2B_1k.c -o create_key_2B_1k")
-files+=("crypt_program_2B_1k.c utils.c crypt_2B_1k.c -o crypt_program_2B_1k")
-files+=("check_key_2B_1k.c utils.c crypt_2B_1k.c -o check_key_2B_1k")
-files+=("test_blocks_generic.c utils.c -o test_blocks_generic")
-files+=("test_create_array.c utils.c -o test_create_array")
-files+=("test_pointers_generic.c utils.c -o test_pointers_generic")
-files+=("test_loop_max_depth.c utils.c -o test_loop_max_depth")
-len=${#files[@]}
+commands=()
+commands+=("create_key_2B_1k.c utils.c crypt_2B_1k.c -o create_key_2B_1k")
+commands+=("crypt_program_2B_1k.c utils.c crypt_2B_1k.c -o crypt_program_2B_1k")
+commands+=("check_key_2B_1k.c utils.c crypt_2B_1k.c -o check_key_2B_1k")
+commands+=("test_blocks_generic.c utils.c -o test_blocks_generic")
+commands+=("test_create_array.c utils.c -o test_create_array")
+commands+=("test_pointers_generic.c utils.c -o test_pointers_generic")
+commands+=("test_loop_max_depth.c utils.c -o test_loop_max_depth")
+len=${#commands[@]}
 
-# Compile all files
+# Compile all commands
 i=0
 while [ $i -lt $len ]; do
-  fullprogram="${compiler} ${flags} ${files[$i]}"
+  fullprogram="${compiler} ${flags} ${commands[$i]}"
   # echo ""
   echo $fullprogram
   eval $fullprogram

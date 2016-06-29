@@ -44,18 +44,6 @@ void print_block_1B(uint8* block, size_t size);
 // Print a Block of 1024 Bytes size (but two bytes together)
 void print_block_2B(uint8* block, size_t size);
 
-// Somehow n dimensional array with type uint8 (unsigned char)
-int create_array(uint8* array, int l[], int dim);
-
-// Free the whole dynamic initialized array of create_array (with type uint8)
-void free_array(uint8* array, int l[], int dim);
-
-// Somehow n dimensional array with type void* (generic)
-int create_array_generic(void* array, int l[], int dim, size_t size);
-
-// Free the whole dynamic initialized array of create_array (with type void*, generic)
-void free_array_generic(void* array, int l[], int dim);
-
 // Creates an block of array with random data
 void define_random_1d_block(uint8* block, int length);
 void define_random_2d_block(uint8** block, int l1, int l2);
@@ -89,5 +77,17 @@ void load_key_2B_generic(char* filename, uint8** fe_block, uint8** hash_values, 
 void save_key_2B_ctr_generic(char* filename, uint8** hash_values, uint8* nonce_block, uint8** f_block, uint8*** func_key_block, uint8** key_block, int exponent, int rounds);
 void load_key_2B_ctr_generic(char* filename, uint8** hash_values, uint8* nonce_block, uint8** f_block, uint8*** func_key_block, uint8** key_block, int exponent, int rounds);
 void load_exp_round(char* filename, int* exponent, int* rounds);
+
+// Somehow n dimensional array with type uint8 (unsigned char)
+int create_array(uint8* array, int l[], int dim);
+
+// Free the whole dynamic initialized array of create_array (with type uint8)
+void free_array(uint8* array, int l[], int dim);
+
+// Somehow n dimensional array with type void* (generic)
+int create_array_generic(void* array, int l[], int dim, size_t size);
+
+// Free the whole dynamic initialized array of create_array (with type void*, generic)
+void free_array_generic(void* array, int l[], int dim);
 
 #endif /* UTILS_H_INCLUDED */

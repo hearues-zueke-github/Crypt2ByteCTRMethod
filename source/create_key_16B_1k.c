@@ -7,7 +7,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include "utils.h"
+#include "../include/utils.h"
 
 struct stat st = {0};
 

@@ -1,4 +1,4 @@
-#include "check_key_2B_1k.h"
+#include "../include/check_key_2B_1k.h"
 
 int check_f_block(uint8** block) {
   uint8 count;
