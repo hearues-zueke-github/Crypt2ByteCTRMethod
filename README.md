@@ -21,7 +21,7 @@ get an output y with applying f and x, then you should get x with applying f^-1 
 To get a feeling with this, let have a look at the following table:
 
 | x    | f(x) |
-| -    | -    |
+| ---    | --- |
 | 0000 | 1100 |
 | 0001 | 0000 |
 | 0010 | 0101 |
