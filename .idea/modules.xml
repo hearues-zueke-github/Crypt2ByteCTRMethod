@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/EnDeCryptionHZMethod.iml" filepath="$PROJECT_DIR$/.idea/EnDeCryptionHZMethod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EnDeCryptionJava/EnDeCryptionJava.iml" filepath="$PROJECT_DIR$/EnDeCryptionJava/EnDeCryptionJava.iml" />
     </modules>
   </component>
 </project>
