@@ -148,6 +148,20 @@ void print_block_2B(uint8* block, size_t size) {
   }
 }
 
+void define_zero_1d_block(uint8* block, int length) {
+  memset(block, 0, length);
+}
+void define_zero_2d_block(uint8** block, int l1, int l2) {
+  int i = 0;
+  for (i = 0; i < l1; i++)
+    define_zero_1d_block(block[i], l2);
+}
+void define_zero_3d_block(uint8*** block, int l1, int l2, int l3) {
+  int i = 0;
+  for (i = 0; i < l1; i++)
+    define_zero_2d_block(block[i], l2, l3);
+}
+
 void define_random_1d_block(uint8* block, int length) {
   int i = 0;
   for (i = 0; i < length; i++)
@@ -526,7 +540,7 @@ int create_array_generic(void* array, int l[], int dim, size_t size) {
 
   for (i = 0; i < l[dim - 1]; i++) {
     void* temp;
-    if (create_array((void*)&temp, l, dim - 1) == -1) {
+    if (create_array_generic((void*)&temp, l, dim - 1, size) == -1) {
       free_array_generic((void*)*(void**)array, l, dim);
       return -1;
     }

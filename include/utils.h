@@ -44,6 +44,11 @@ void print_block_1B(uint8* block, size_t size);
 // Print a Block of 1024 Bytes size (but two bytes together)
 void print_block_2B(uint8* block, size_t size);
 
+// Creates an block of array with 0 filled
+void define_zero_1d_block(uint8* block, int length);
+void define_zero_2d_block(uint8** block, int l1, int l2);
+void define_zero_3d_block(uint8*** block, int l1, int l2, int l3);
+
 // Creates an block of array with random data
 void define_random_1d_block(uint8* block, int length);
 void define_random_2d_block(uint8** block, int l1, int l2);

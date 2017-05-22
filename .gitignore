@@ -1,1 +1,7 @@
 /CryptByteCTRMethod/target/
+binaries/*
+EnDeCryptionJava/out
+EnDeCryptionJava/.idea
+CryptByteCTRMethod/out
+CryptByteCTRMethod/.idea
+keyfiles
